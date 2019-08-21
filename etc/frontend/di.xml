@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Find Canary, LLC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Swarming\SubscribePro\Block\Product\Subscription">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\SubscribePro\Block\Product\SubscriptionPlugin"/>
+    </type>
+    <type name="Swarming\SubscribePro\Block\Cart\Subscription">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\SubscribePro\Block\Cart\SubscriptionPlugin"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\Checkout\Block\CartPlugin"/>
+    </type>
+</config>

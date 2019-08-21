@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Find Canary, LLC. All rights reserved.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="findcanary_subscribepro_trial_registry" resource="default" engine="innodb" comment="SubscribePro Trial Product Registry">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="smallint" name="purchases" padding="6" unsigned="true" nullable="false" default="0" comment="Purchases times"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_CUSTOMER_ID_CUSTOMER_ENTITY_CUSTOMER_ID" table="findcanary_subscribepro_trial_registry"
+                    column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_PRODUCT_ID_CATALOG_PRODUCT_PRODUCT_ID" table="findcanary_subscribepro_trial_registry"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+
+        <constraint xsi:type="unique" referenceId="FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_CUSTOMER_ID_PRODUCT_ID">
+            <column name="customer_id"/>
+            <column name="product_id"/>
+        </constraint>
+    </table>
+</schema>

@@ -1,0 +1,27 @@
+<!--
+/**
+ * Copyright © Find Canary, LLC. All rights reserved.
+ */
+-->
+<!-- ko if: isProductLoaded() -->
+    <div class="fieldset">
+        <input type="hidden" name="subscription_option[option]" data-bind="value: subscriptionOption">
+
+        <span data-bind="text: product.trial_product_message.replace('%interval', intervalValue())"></span>
+
+        <div class="field" data-bind="visible: product.intervals.length > 1">
+            <label class="label">
+            <!-- ko i18n: 'Delivery after trial' --><!-- /ko -->
+            <!-- ko text: ':' --><!-- /ko -->
+            </label>
+            <div class="control">
+                <select name="subscription_option[interval]"
+                    data-bind="options: product.intervals, checked: intervalValue, value: intervalValue"></select>
+            </div>
+        </div>
+    </div>
+<!-- /ko -->
+
+<!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->

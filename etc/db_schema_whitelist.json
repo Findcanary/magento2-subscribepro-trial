@@ -1,0 +1,20 @@
+{
+    "findcanary_subscribepro_trial_registry": {
+        "column": {
+            "entity_id": true,
+            "customer_id": true,
+            "product_id": true,
+            "purchases": true
+        },
+        "index": {
+            "FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_CUSTOMER_ID": true,
+            "FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_PRODUCT_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_CSTR_ID_CSTR_ENTT_ENTT_ID": true,
+            "FK_FF904D015544681EB41975D1666946BE": true,
+            "FINDCANARY_SUBSCRIBEPRO_TRIAL_REGISTRY_CUSTOMER_ID_PRODUCT_ID": true
+        }
+    }
+}

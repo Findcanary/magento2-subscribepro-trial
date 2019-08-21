@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Find Canary, LLC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="subscribe_pro_after_create_subscription_from_quote_item">
+        <observer name="findcanary-subscribepro-trial" instance="FindCanary\SubscribeProTrial\Observer\SubscribePro\Subscription\CreateAfter" />
+    </event>
+</config>

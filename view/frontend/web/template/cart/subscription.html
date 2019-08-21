@@ -1,0 +1,33 @@
+<!--
+/**
+ * Copyright © Find Canary, LLC. All rights reserved.
+ */
+-->
+<!-- ko if: isProductLoaded() -->
+    <div class="fieldset">
+        <input type="hidden" data-bind="value: subscriptionOption,
+                                        attr: {name: 'cart['+quoteItemId+'][subscription_option][option]'}">
+
+        <span data-bind="text: product.trial_product_message.replace('%interval', intervalValue())"></span>
+
+        <div class="field" data-bind="visible: product.intervals.length > 1">
+            <label class="label">
+                <!-- ko i18n: 'Delivery every' --><!-- /ko -->
+                <!-- ko text: ':' --><!-- /ko -->
+            </label>
+            <div class="control">
+                <select
+                        data-bind="
+                          options: product.intervals,
+                          checked: intervalValue,
+                          value: intervalValue,
+                          attr: {name: 'cart['+quoteItemId+'][subscription_option][interval]'}">
+                </select>
+            </div>
+        </div>
+    </div>
+<!-- /ko -->
+
+<!-- ko foreach: getRegion('messages') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->

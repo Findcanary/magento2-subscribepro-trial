@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Find Canary, LLC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\Quote\Model\QuotePlugin"/>
+    </type>
+    <type name="Swarming\SubscribePro\Model\Quote\SubscriptionOption\Updater">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\SubscribePro\Model\Quote\SubscriptionOption\UpdaterPlugin"/>
+    </type>
+    <type name="Swarming\SubscribePro\Model\Quote\ItemSubscriptionDiscount">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\SubscribePro\Model\Quote\ItemSubscriptionDiscountPlugin"/>
+    </type>
+    <type name="Magento\Payment\Model\Checks\ZeroTotal">
+        <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\Payment\Model\Checks\ZeroTotalPlugin"/>
+    </type>
+    <type name="Magento\Quote\Model\ValidationRules\QuoteValidationComposite">
+        <arguments>
+            <argument name="validationRules" xsi:type="array">
+                <item name="FindCanarySubscribeProTrial" xsi:type="object">FindCanary\SubscribeProTrial\Model\Quote\ValidationRules\RestrictTrialProductsPurchasing</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
