@@ -5,6 +5,7 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swarming\SubscribePro\Plugin\Quote\Item" type="FindCanary\SubscribeProTrial\Plugin\Quote\ItemPlugin"/>
     <type name="Magento\Quote\Model\Quote">
         <plugin name="findcanary-subscribepro-trial" type="FindCanary\SubscribeProTrial\Plugin\Quote\Model\QuotePlugin"/>
     </type>
