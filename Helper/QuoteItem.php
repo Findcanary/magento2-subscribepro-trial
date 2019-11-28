@@ -31,7 +31,7 @@ class QuoteItem
      */
     public function isSubscriptionEnabled(\Magento\Quote\Model\Quote\Item $quoteItem): bool
     {
-        return $this->quoteItemHelper->isSubscriptionEnabled($quoteItem);
+        return $this->quoteItemHelper->getCreateNewSubscriptionAtCheckout($quoteItem);
     }
 
     /**
