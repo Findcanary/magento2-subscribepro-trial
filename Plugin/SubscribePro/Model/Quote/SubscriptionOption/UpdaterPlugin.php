@@ -39,7 +39,7 @@ class UpdaterPlugin
         $subscriptionOption,
         $subscriptionInterval
     ) {
-        $isTrial = $platformProduct->getIsTrialProduct();
+        $isTrial = (bool)$platformProduct->getIsTrialProduct();
         $this->quoteItemHelper->setIsTrial($quoteItem, $isTrial);
 
         $trialInterval = $isTrial && $platformProduct->getTrialInterval() ? $platformProduct->getTrialInterval() : null;
