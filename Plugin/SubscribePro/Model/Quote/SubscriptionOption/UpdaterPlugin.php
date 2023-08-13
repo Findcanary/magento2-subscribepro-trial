@@ -42,8 +42,10 @@ class UpdaterPlugin
         $isTrial = (bool)$platformProduct->getIsTrialProduct();
         $this->quoteItemHelper->setIsTrial($quoteItem, $isTrial);
 
-        $trialInterval = $isTrial && $platformProduct->getTrialInterval() ? $platformProduct->getTrialInterval() : null;
-        $this->quoteItemHelper->setTrialInterval($quoteItem, $trialInterval);
+        if ($isTrial) {
+            $trialInterval = $platformProduct->getTrialInterval() ?: null;
+            $this->quoteItemHelper->setTrialInterval($quoteItem, $trialInterval);
+        }
 
         return $result;
     }
